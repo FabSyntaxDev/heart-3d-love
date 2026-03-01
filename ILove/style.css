@@ -1,0 +1,155 @@
+:root {
+    --primary-pink: #ff007f;
+    /* Vibrant Pink / Magenta */
+    --soft-pink: #ff85a1;
+    --dark-pink: #4a0024;
+    --dark-bg: #0b0104;
+    --gold: #ffd700;
+    --text-white: #fff0f3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 0, 127, 0.15) 0%, rgba(11, 1, 4, 1) 70%);
+    z-index: -1;
+}
+
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+#heart-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    animation: rotateHeart 15s linear infinite, pulseHeart 2s ease-in-out infinite;
+}
+
+.heart-word {
+    position: absolute;
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    /* Increased size */
+    font-weight: 700;
+    /* Increased weight */
+    color: var(--primary-pink);
+    text-shadow: 0 0 20px rgba(255, 0, 127, 1), 0 0 40px rgba(255, 0, 127, 0.5);
+    /* Stronger glow */
+    transition: transform 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    opacity: 0;
+    backface-visibility: visible;
+    /* Apply counter-rotation to keep text upright and combine with fadeIn */
+    animation: fadeIn 1s ease forwards, counterRotate 15s linear infinite;
+}
+
+.heart-word:hover {
+    color: var(--gold);
+    z-index: 100;
+}
+
+.heart-word:hover {
+    color: var(--gold);
+    transform: scale(1.5) !important;
+    z-index: 100;
+}
+
+@keyframes rotateHeart {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes counterRotate {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(-360deg);
+    }
+}
+
+@keyframes pulseHeart {
+
+    0%,
+    100% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.15;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
