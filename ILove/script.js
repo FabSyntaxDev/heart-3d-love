@@ -8,11 +8,10 @@ function createHeart() {
 
     for (let i = 0; i < totalWords; i++) {
         const angle = (i / totalWords) * 2 * Math.PI;
-
+        
         // Parametric heart equation
         // x = 16 sin^3(t)
         // y = 13 cos(t) - 5 cos(2t) - 2 cos(3t) - cos(4t)
-
         const x = 16 * Math.pow(Math.sin(angle), 3);
         const y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
 
@@ -39,7 +38,6 @@ function createHeart() {
         heartContainer.appendChild(word);
     }
 }
-
 function createParticles() {
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
@@ -58,7 +56,6 @@ function createParticles() {
         particlesContainer.appendChild(particle);
     }
 }
-
 // Add keyframes for fadeIn dynamically
 const style = document.createElement('style');
 style.textContent = `
@@ -71,3 +68,4 @@ document.head.appendChild(style);
 
 createHeart();
 createParticles();
+
