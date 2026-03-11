@@ -7,8 +7,7 @@ function createHeart() {
     const radius = 220;
 
     for (let i = 0; i < totalWords; i++) {
-        const angle = (i / totalWords) * 2 * Math.PI;
-        
+        const angle = (i / totalWords) * 2 * Math.PI;    
         // Parametric heart equation
         // x = 16 sin^3(t)
         // y = 13 cos(t) - 5 cos(2t) - 2 cos(3t) - cos(4t)
@@ -68,4 +67,5 @@ document.head.appendChild(style);
 
 createHeart();
 createParticles();
+
 
